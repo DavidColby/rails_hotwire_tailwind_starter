@@ -1,0 +1,17 @@
+<div data-extended-modal-target="container" data-action="click->extended-modal#closeBackground keyup@window->extended-modal#closeWithKeyboard" class="hidden scale-in animated fixed inset-0 overflow-y-auto flex items-center justify-center" style="z-index: 9999;">
+  <div class="max-h-screen w-full max-w-lg relative">
+    <div class="m-1 rounded-lg overflow-hidden">
+      <div class="bg-gray-1000 rounded-t-lg border border-gray-1000">
+        <div class="px-8 py-4">
+          <h2 class="text-xl text-white"><%= header %></h2>
+        </div>
+      </div>
+      <div class="px-8 py-2 bg-white">
+        <div class="leading-7 text-gray-700 text-justify border-b border-gray-200 pb-4 text-sm">
+          <%= body %>
+        </div>
+        <%= footer %>
+      </div>
+    </div>
+  </div>
+</div>

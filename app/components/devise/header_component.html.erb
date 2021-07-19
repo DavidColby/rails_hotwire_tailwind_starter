@@ -1,0 +1,11 @@
+  <div class="mx-auto w-full max-w-md">
+    <h2 class="text-center text-3xl font-extrabold text-gray-900">
+      <%= intro %>
+    </h2>
+    <% if lead_in.present? %>
+      <p class="mt-2 text-center text-sm text-gray-700">
+        <%= lead_in %>
+        <%= link_to action_label, @path, class: "text-primary-600 hover:text-primary-700" %>
+      </p>
+    <% end %>
+  </div>

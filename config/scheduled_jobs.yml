@@ -1,0 +1,4 @@
+nightly_jobs:
+  cron: "0 2 * * *"
+  class: "NightlyJob"
+  queue: default

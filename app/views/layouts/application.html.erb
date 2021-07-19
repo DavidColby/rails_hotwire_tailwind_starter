@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rails6Starter</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="flex flex-col h-screen justify-between px-4 md:px-0">
+      <%= render(Shared::TopNavComponent.new(user: current_user)) %>
+      <main class="mb-auto w-full">
+        <div class="mx-auto max-w-7xl md:px-6 lg:px-8">
+          <%= yield %>
+        </div>
+      </main>
+      <%= render(Shared::FooterComponent.new) %>
+      <% flash.each do |key, value| %>
+        <%= render(Shared::FlashMessageComponent.new(level: key).with_content(value)) %>
+      <% end %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<div class="flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <%= render(Devise::HeaderComponent.new(intro: t(".intro"))) %>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "space-y-6" }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.hidden_field :reset_password_token %>
+
+        <div class="form-group">
+              <%= f.label :password, class: "block text-sm font-medium text-gray-700 cursor-pointer"  %>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm" %>
+          <% if @minimum_password_length %>
+            <p class="text-sm text-gray-600 mt-3"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></p>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700 cursor-pointer"  %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm" %>
+        </div>
+
+        <div>
+          <%= f.button t('.cta_label'), class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500", data: { disable_with: t(".submitting") } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

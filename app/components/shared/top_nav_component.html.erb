@@ -1,0 +1,5 @@
+<% if @user.present? %>
+  <%= render(Shared::AuthenticatedNavComponent.new(user: @user)) %>
+<% else %>
+  <%= render(Shared::AnonymousNavComponent.new) %>
+<% end %>

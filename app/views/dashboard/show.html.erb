@@ -1,0 +1,15 @@
+<div class="mt-12 text-center">
+  <h2 class="text-primary-600 text-2xl mb-8">Examples</h2>
+  <div data-controller="extended-modal">
+    <a data-action="click->extended-modal#open" href="#" class="hover:text-gray-600">
+      Modal example
+    </a>
+    <%= render Shared::ModalComponent.new do |component| %>
+      <%= component.header { 'Example modal' } %>
+      <%= component.body { 'Example modal body' } %>
+      <% component.footer do %>
+        Close
+      <% end %>
+    <% end %>
+  </div>
+</div>

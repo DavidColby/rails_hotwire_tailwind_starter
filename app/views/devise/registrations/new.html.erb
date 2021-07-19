@@ -1,0 +1,47 @@
+<div class="flex flex-col justify-center py-12">
+  <%= render Devise::HeaderComponent.new(path: new_user_session_path) do |component| %>
+    <%= component.intro { t('.intro') } %>
+    <%= component.lead_in { t('.lead_in') } %>
+    <%= component.action_label { t('.sign_in') } %>
+  <% end %>
+
+  <div class="mt-6 mx-auto w-full max-w-md">
+    <div class="bg-white py-6 px-4 shadow-lg rounded-lg px-10">
+      <div>
+        <%= render 'shared/oauth_options', verb: "Sign up", intent: "signup" %>
+
+        <div class="mt-6 relative">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-2 bg-white text-gray-500">
+              <%= t('shared.email_password_option') %>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "space-y-6" }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div>
+          <%= f.label :email, class: "label" %>
+          <div class="mt-1">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+          </div>
+        </div>
+
+        <div>
+          <%= f.label :password, class: "label" %>
+          <div class="mt-1">
+            <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
+          </div>
+        </div>
+
+        <div>
+          <%= render(Shared::PrimaryButtonComponent.new.with_content(t('.cta_label'))) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
